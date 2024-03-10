@@ -49,6 +49,7 @@ const Job = () => {
 
       Filters.category = checkboxName;
     }
+    console.log(Filters)
   };
 
   const handleChange = (e) => {
@@ -68,6 +69,8 @@ const Job = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFilter(false)
+    console.log(Filters)
     dispatch(AllJobs({ page: Page, ...Filters, jobType }));
   };
 
@@ -97,6 +100,8 @@ const Job = () => {
       <Layout>
         <Container>
           <div className="min-h-[90vh]  flex px-[8%]  w-full flex-col lg:flex-row   text-black mt-[50px] md:mt-[100px] items-center justify-center md:items-start relative gap-[50px]">
+
+          
             {/* mobile */}
 
             <SidebarLG
@@ -116,10 +121,13 @@ const Job = () => {
               </div>
             </div>
 
-            {filter && <SidebarSm set={setFilter}></SidebarSm>}
+            {filter && <SidebarSm set={setFilter} handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              handleCheckboxChange={handleCheckboxChange}
+              Filters={Filters}></SidebarSm>}
 
             {/*  */}
-
+            
             <div className="w-[100%] md:w-[70%]  lg:w-[55%] h-[100vh] lg:mx-[10px] md:px-[10px] flex flex-col gap-3  pt-2 overflow-auto mb-[20px]">
               {allJobs && !loading ? (
                 allJobs?.map(
@@ -155,6 +163,7 @@ const Job = () => {
                           key={i}
                           className="bg-white w-full h-fit px-[20px] min-w-[46%] py-[20px] flex flex-col gap-3"
                         >
+                          
                           <div className="flex border-[0.5px] rounded-[4px] px-2 w-fit border-[#8A8A8A]">
                             <p className="text-[12px]">Actively hiring</p>
                           </div>
@@ -252,7 +261,7 @@ const Job = () => {
                   `}</style>
                 </div>
               )}
-              {allJobs.length >9 && (
+
                 <nav aria-label="Page navigation example text-sky-600">
                   <ul className="inline-flex -space-x-px text-base h-10">
                     <li>
@@ -263,7 +272,8 @@ const Job = () => {
                         <GrPrevious />
                       </a>
                     </li>
-
+                    
+                  
                     {Array.from({ length: page.totalPages }).map((_, index) => {
                       return (
                         <>
@@ -283,6 +293,7 @@ const Job = () => {
                       );
                     })}
 
+
                     <li>
                       <a
                         href="#"
@@ -293,7 +304,6 @@ const Job = () => {
                     </li>
                   </ul>
                 </nav>
-              )}
             </div>
           </div>
         </Container>
@@ -469,7 +479,13 @@ function SidebarLG({
   );
 }
 
-function SidebarSm({ set }) {
+function SidebarSm({
+  handleSubmit,
+  handleChange,
+  handleCheckboxChange,
+  Filters,
+  set
+}) {
   return (
     <div className="flex items-center  justify-center   bg-[#dadadadc] h-[120vh] w-[100vw]  absolute left-0 -top-[50px] md:-top-[100px] lg:hidden">
       <div className="side bg-white py-4  px-[10px] w-[90%]  md:w-[50%]  rounded-md">
@@ -479,11 +495,15 @@ function SidebarSm({ set }) {
             <RxCross2 onClick={() => set(false)} />
           </div>
 
+          <form  action=""  onSubmit={handleSubmit} >
           <div className="">
             <p className="text-black text-[14px] font-[600]">Profile</p>
             <input
               className="border-[1px] px-2 py-[6px] outline-none rounded-[4px] bg-[#fcfcfcd2] w-full"
               type="text"
+              value={Filters.title}
+              name="title"
+              onChange={handleChange}
               placeholder="e.g markiting"
             />
           </div>
@@ -494,54 +514,65 @@ function SidebarSm({ set }) {
               className="border-[1px] px-2 py-[6px] outline-none rounded-[4px] bg-[#fcfcfcd2] w-full"
               type="text"
               placeholder="e.g sironj"
+              name="location"
+              value={Filters.location}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="">
+            <p className="text-black text-[14px] font-[600]">Skills</p>
+            <input
+              className="border-[1px] px-2 py-[6px] outline-none rounded-[4px] bg-[#fcfcfcd2] w-full"
+              type="text" 
+              placeholder="skills"
+              value={Filters.skills}
+              name="skills"
+              onChange={handleChange}
+           
+            />
+          </div>
+
+          <div className="">
+            <p className="text-black text-[14px] font-[600]">Salary</p>
+            <input
+              className="border-[1px] px-2 py-[6px] outline-none rounded-[4px] bg-[#fcfcfcd2] w-full"
+              type="text" name="salary"
+              placeholder="Salary"
+              value={Filters.sl}
+              onChange={handleChange}
             />
           </div>
 
           <div className="flex items-center gap-1">
-            <input type="checkbox" />
-            <p>Work from Home</p>
+            <input type="checkbox"
+            onChange={() => handleCheckboxChange("Remote")}
+             />
+            <p>Remote</p>
           </div>
 
           <div className="flex items-center gap-1">
-            <input type="checkbox" />
-            <p>part time</p>
+            <input type="checkbox"
+            onChange={() => handleCheckboxChange("In Office")}
+             />
+            <p>In Office</p>
           </div>
 
           <div className="flex items-center gap-1">
-            <input type="checkbox" />
+            <input type="checkbox"
+            onChange={() => handleCheckboxChange("Internship")}
+            />
+            
             <p> internships</p>
           </div>
 
-          <div>
-            <p>Annual salary (in lakhs)</p>
+          <div className=" w-full flex justify-center">
+          <button className="btn">Search</button>
           </div>
+        </form>
 
-          <div>
-            <p className="text-black text-[14px] font-[600]">
-              Years of experience
-            </p>
-            <input
-              type="text"
-              placeholder="enter year of experience"
-              className="border-[1px] px-2 py-[6px] outline-none rounded-[4px] bg-[#fcfcfcd2] w-full"
-            />
-          </div>
-        </div>
-        <div className="flex items-center justify-between mt-2">
-          <div className="w-[45%] h-[1px] bg-[#ADADAD]"></div>
-          <p className="text-sm capitalize text-[11px]">oR</p>
-          <div className="w-[45%] h-[1px] bg-[#ADADAD]"></div>
         </div>
 
-        <p className="text-center mt-2 text-[#ADADAD] font-semibold my-3">
-          Search
-        </p>
-
-        <input
-          type="text"
-          placeholder="search..."
-          className="border-[1px] px-2 py-[6px] border-[#ADADAD]  outline-none  bg-[#fcfcfcd2] w-full"
-        />
       </div>
     </div>
   );

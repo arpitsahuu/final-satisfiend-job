@@ -50,6 +50,13 @@ export default function Home() {
     router.push("/Job");
   };
 
+  const onJobClick = (id) =>{
+    if(!student){
+      router.push("./loginUser")
+    }
+    router.push(`./details/${id}`)
+  }
+
   useEffect(() => {
     if (searchTerm.trim() === "" && searchLocation.trim() === "" ) {
       setJobs([]);
@@ -119,13 +126,11 @@ export default function Home() {
             {jobs?.length != 0 && (
               <div
                 id="serchdiv"
-                className=" absolute top-[110%] w-[800px] h-[15vh] rounded-xl border border-slate-300 bg-[#f4f2f6] px-3 pt-4 overflow-y-auto "
+                className=" absolute top-[110%] w-[800px] h-[18vh] rounded-xl  bg-white px-3 pt-4 overflow-y-auto "
               >
                 {jobs?.map((job) => {
                   return (
-                  
-                    <Link  href={`/details/${job._id}`} className="w-full">
-                    <div className="px-3 py-2 flex justify-between gap-3 border border-slate-300 rounded-3xl ">
+                    <div className="px-3 py-2 flex justify-between gap-3 border border-slate-300 rounded-3xl  my-1" onClick={() => onJobClick(job._id)} >
                       <div className="flex gap-1">
                         <h6>{job.title}</h6>
                         <p id="serchdivtype" className="text-[#424242]">
@@ -134,7 +139,6 @@ export default function Home() {
                       </div>
                       <h6 id="serchdivlocation">{job.location}</h6>
                     </div>
-                    </Link>
                   );
                 })}
               </div>

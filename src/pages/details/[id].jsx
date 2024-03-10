@@ -45,6 +45,8 @@ const Details = () => {
     }
   }, []);
 
+  
+
   const checkIsApplyed = async () =>{
     const currentId = id?.toString();
     const apply = student?.jobapplications?.includes(currentId)
@@ -79,7 +81,7 @@ const Details = () => {
       <Container>
         {job && (
           <Container>
-            <div className="min-h-screen pt-16 px-4 flex flex-col items-center justify-center bg-gray-100 ">
+            <div className="min-h-screen pt-16 px-4 flex flex-col items-center justify-center bg-gray-100 mb-8 ">
               <h1 className="text-2xl font-semibold mt-4 mb-6">
                 {job.employer?.organisationname}
               </h1>
@@ -173,9 +175,12 @@ const Details = () => {
                   </div>
                 </div>
 
+                { islogin &&  
+
                 <div className="flex items-center justify-end">
                   {/* {loading && <div className="text-sm">Loading</div>} */}
                   {/* {isApplied ?<h1>ture</h1>:<h1>false</h1>} */}
+                  
                   {
                     !isApplied ? (<div
                     onClick={handleApply}
@@ -200,6 +205,7 @@ const Details = () => {
                     </div>
                   )} */}
                 </div>
+               }
               </div>
             </div>
           </Container>

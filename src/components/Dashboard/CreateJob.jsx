@@ -52,6 +52,7 @@ const JobForm = () => {
         <input
           type="text"
           id="title"
+          placeholder="Ex. Mern stack developer"
           {...register("title", { required: true })}
         />
         {errors.title && (
@@ -70,11 +71,12 @@ const JobForm = () => {
         )}
       </div> */}
       <div>
-        <label htmlFor="skills">Skills:</label>
+        <label htmlFor="skills">Skills: <span className=" font-normal text-xs text-slate-500">(please press enter button to add skill)</span> </label>
         <input
           type="text"
           id="skills"
           value={newSkill}
+          placeholder="Ex. java"
           onKeyDown={handleSkillChange}
           onChange={handleInputChange}
         />
@@ -133,6 +135,7 @@ const JobForm = () => {
         <input
           type="text"
           id="openings"
+          placeholder="Ex.10 "
           {...register("openings", { required: true })}
         />
         {errors.openings && (
@@ -164,6 +167,7 @@ const JobForm = () => {
         <input
           type="NUMBER"
           id="salary"
+          placeholder="Ex. 50000"
           className="w-full h-[40px] outline-none"
           {...register("salary", { required: true })}
         />
@@ -176,6 +180,7 @@ const JobForm = () => {
         <label htmlFor="salary">location</label>
         <input
           type="text"
+          placeholder="Ex. Banglorej  "
           id="salary"
           {...register("location", { required: true })}
         />
