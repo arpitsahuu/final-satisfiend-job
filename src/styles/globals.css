@@ -977,6 +977,10 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   #serchmaindiv{
     width: 750px;
   }
+  #serchdiv{
+    width: 750px;
+    right: 0;
+  }
   
 }
 
@@ -1004,6 +1008,11 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   #serchmaindiv{
     width: 460px;
   }
+  #serchdiv{
+    width: 460px;
+    right: 0;
+  }
+  
   
   
   #serchbtnth{
@@ -1014,6 +1023,9 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   }
   #search{
     width: 400px;
+  }
+  #search:focus{
+    border: none;
   }
   #locationmaindiv{
     display: none;
@@ -1027,7 +1039,7 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
+/* @media (min-width: 320px) and (max-width: 480px) {
   
   #serchbtnth{
     display: none;
@@ -1052,4 +1064,55 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
     content: "Enter jobs skills"; 
   }
   
+} */
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  #serchmaindiv{
+    width: 300px;
+    padding-left: 35px;
+  }
+  #search{
+    width: 300px;
+    font-size: 10px;
+  }
+  #search::placeholder {
+    content: "Enter jobs skills"; 
+  }
+  #locationmaindiv{
+    display: none;
+  }
+  .effectSerchbtnone{
+    display: none;
+  }
+  .effectSerchbtntwo{
+    display: none;
+  }
+  #effectSerchbtnthree{
+    display: none;
+  }
+  #effectSerchbtnfour{
+    display: none;
+  }
+  #serchbtnth{
+    display: none;
+  }
+  #mentbtn{
+    display: none;
+  }
+  #serchdiv{
+    width: 300px;
+    right: 0;
+  }
+  #serchdivtype{
+    display: none;
+  }
+  #serchdivlocation{
+    display: none;
+  }
 }

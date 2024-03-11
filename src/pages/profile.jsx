@@ -37,6 +37,7 @@ const Profile = () => {
   const [showResuma, setshowResuma] = useState(false);
   const { student, error, loading } = useSelector((state) => state.student);
   const dispatch = useDispatch();
+  let currnentfile = {};
 
   useEffect(() => {
     dispatch(currentStudent());
@@ -74,7 +75,8 @@ const Profile = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setSelectedFile(file);
+    // setSelectedFile(file);
+    currnentfile = file;
 
     setTimeout(() => {}, 1000);
 
@@ -83,9 +85,17 @@ const Profile = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (selectedFile) {
+    // if (selectedFile) {
+    //   console.log(selectedFile);
+    //   // dispatch(avatarStudent(selectedFile));
+    //   dispatch(avatarStudent(currnentfile));
+    // } else {
+    //   console.warn("No file selected");
+    // }
+    if (currnentfile) {
       console.log(selectedFile);
-      dispatch(avatarStudent(selectedFile));
+      // dispatch(avatarStudent(selectedFile));
+      dispatch(avatarStudent(currnentfile));
     } else {
       console.warn("No file selected");
     }
@@ -96,6 +106,7 @@ const Profile = () => {
   };
 
   const [resumetem, setresumetem] = useState();
+  let currentResumeTem = {};
   const formRefResuma = useRef();
   const inputRefResuma = useRef();
   const btnRefResuma = useRef();
@@ -107,14 +118,20 @@ const Profile = () => {
   const handleFileChangeResuma = async (event) => {
     const file = event.target.files[0];
     // await setSelectedResuma(file)
-    setresumetem(file);
+    currentResumeTem = file;
+    // setresumetem(file);
     btnRefResuma.current.click();
   };
 
   const handleSubmitResuma = async (event) => {
     event.preventDefault();
-    if (resumetem) {
-      dispatch(uploadResuma(resumetem));
+    // if (resumetem) {
+    //   dispatch(uploadResuma(resumetem));
+    // } else {
+    //   console.warn("No Resuma selected");
+    // }
+    if (currentResumeTem) {
+      dispatch(uploadResuma(currentResumeTem));
     } else {
       console.warn("No Resuma selected");
     }
@@ -130,8 +147,8 @@ const Profile = () => {
 
   return (
     <Layout>
-      {loading && <Loading />}
       <Container bgColor={"#F4F5F7"}>
+      {loading && <Loading className="w-screen h-full" />}
         <div className="w-auto flex flex-col md:flex-row justify-center gap-4 px-2 min-h-[100vh] md:mt-[100px]">
           <div className="flex  flex-col gap-3 items-center">
             <div className=" flex flex-col justify-evenly items-center md:items-start min-h-[130px]   h-fit px-[20px] py-[10px] bg-white gap-3 rounded-md">

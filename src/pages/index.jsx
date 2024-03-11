@@ -91,7 +91,7 @@ export default function Home() {
             <input
               id="search"
               type="text"
-              className=""
+              className=" focus:outline-none"
               placeholder="Enter Job, skills and designations"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -100,7 +100,7 @@ export default function Home() {
             <input
               id="locationmaindiv"
               type="text"
-              className=" border-l-1"
+              className=" border-l-1 focus:outline-none"
               placeholder="Location"
               value={searchLocation}
               onChange={(e) => setsearchLocation(e.target.value)}
@@ -146,7 +146,7 @@ export default function Home() {
           </div>
 
           <div className="w-full flex justify-center gap-5 mt-9 text-slate-600">
-            <button className="serchbtn border rounded-3xl px-4 py-1 border-slate-300">
+            <button className="serchbtn border rounded-3xl px-4 py-1 border-slate-300" id="mentbtn">
               ment stack developer
             </button>
             <button className="border rounded-3xl px-4 py-1 border-slate-300">
@@ -168,7 +168,7 @@ export default function Home() {
             <button className=" effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
               MNC <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2" id="effectSerchbtnthree">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
             <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2">
@@ -191,7 +191,7 @@ export default function Home() {
             <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2">
+            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2" id="effectSerchbtnfour">
               Engineering <FaChevronRight className=" text-slate-600" />
             </button>
             <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
