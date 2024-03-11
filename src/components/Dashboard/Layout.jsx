@@ -10,6 +10,8 @@ import { currentEmployee } from "@/redux/actions/employeeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import { MdWork } from "react-icons/md";
+import { FaChalkboardUser } from "react-icons/fa6";
 
 const Layout = ({ children, setTab, tab }) => {
   const router = useRouter();
@@ -102,6 +104,36 @@ const Layout = ({ children, setTab, tab }) => {
               >
                 <CiEdit /> Create Job
               </h3>
+              {employee?.isAdmin && (
+                <h3
+                  className={`flex items-center gap-1  cursor-pointer ${
+                    tab === "AllUsers" ? "bg-white text-black" : ""
+                  }`}
+                  onClick={() => setTab("AllUsers")}
+                >
+                  <FaChalkboardUser  /> All Users
+                </h3>
+              )}
+              {employee?.isAdmin && (
+                <h3
+                  className={`flex items-center gap-1  cursor-pointer ${
+                    tab === "AllEmploye" ? "bg-white text-black" : ""
+                  }`}
+                  onClick={() => setTab("AllEmploye")}
+                >
+                  <FaChalkboardUser /> All Employe
+                </h3>
+              )}
+              {employee?.isAdmin && (
+                <h3
+                  className={`flex items-center gap-1  cursor-pointer ${
+                    tab === "" ? "bg-white text-black" : ""
+                  }`}
+                  onClick={() => setTab("WebsiteJobs")}
+                >
+                  <FaUsersViewfinder /> Website Jobs
+                </h3>
+              )}
             </div>
             <div className="social-links">
               <h5>

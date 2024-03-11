@@ -3,12 +3,13 @@ import {
   MdDepartureBoard,
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardDoubleArrowDown,
+  MdWork,
 } from "react-icons/md";
 import Container from "./Container";
 import Link from "next/link";
 import { IoLogoSnapchat, IoPerson } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BsBagFill } from "react-icons/bs";
+import { BsBagFill, BsPersonFill, BsPersonFillAdd } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -19,6 +20,7 @@ import {
   currentEmployee,
   logoutEmployee,
 } from "@/redux/actions/employeeAction";
+import { IoIosBookmark, IoMdMenu } from "react-icons/io";
 const Header = () => {
   const { student, error } = useSelector((state) => state.student);
   const { employee, error: error2 } = useSelector((state) => state.employee);
@@ -26,14 +28,6 @@ const Header = () => {
 
   const router = useRouter();
   const [show, setShow] = useState(false);
-  const [sidebar, setSidebar] = useState(false);
-  const sideRef = useRef(null);
-
-  const handelClick = () => {
-    // sideRef.current.style.transition = "transform 0.3s ease-in-out";
-    // sideRef.current.style.transform = "translateX(100%)";
-    setSidebar(!sidebar);
-  };
 
   function handelLogout() {
     dispatch(logoutStudent());
@@ -45,6 +39,24 @@ const Header = () => {
     dispatch(currentEmployee());
   }, []);
 
+  /* ---------------- */
+
+  const menuBtn = useRef(null);
+  const sidebar = useRef(null);
+
+  let flag = 0;
+
+  const handleClick = () => {
+    if (flag === 0) {
+      sidebar.current.style.transform = "translateX(0px)";
+      flag = 1;
+    } else {
+      sidebar.current.style.transform = "translateX(-100%)";
+      flag = 0;
+    }
+  };
+
+  /* ------------------ */
   return (
     <div className="w-full flex fixed  z-50 justify-center bg-[#F4F2F6]">
       <div className=" w-full    hidden md:flex items-center justify-between px-[20px] max-w-screen-xl  py-[20px]  bg-gray z-50 relative">
@@ -52,7 +64,6 @@ const Header = () => {
           href={"/"}
           className="text-green text-[20px] font-semibold flex items-center"
         >
-          {/* <img src="./logo.png" className="w-[40px] h-[40px]" alt="" /> */}
           SATISFIED <span className="text-black">JOB</span>
         </Link>
         <div className="flex items-center gap-[20px] font-semibold">
@@ -102,9 +113,53 @@ const Header = () => {
         </div>
       </div>
 
+      <>
+        <div className="sidebar z-50 md:hidden" ref={sidebar}>
+          <div className="text-center text-2xl font-semibold cursor-pointer">
+            <Link href={"/"}>SatisfiedJob</Link>
+          </div>
+          <div className="px-[40px] mt-[40px] py-[10px] flex flex-col gap-[40px]">
+            <div className="flex items-center justify-start gap-1">
+              <FaHome />
+              <Link href="/" className="font-md">
+                <p> Home</p>
+              </Link>
+            </div>
+
+            <div className="flex items-center  justify-start gap-1">
+              <MdWork />
+              <Link href="/Job" className="">
+                Jobs
+              </Link>
+            </div>
+
+            <div className="flex items-center  justify-start gap-1">
+              <IoIosBookmark />
+              <Link href="/applied" className="">
+                Applied
+              </Link>
+            </div>
+
+            <div className="flex items-center  justify-start  gap-1">
+              <BsPersonFillAdd />
+              <Link href="/profile" className="">
+                Profile
+              </Link>
+            </div>
+          </div>
+        </div>
+      </>
+
       <div className="w-[100%] h-[40px]  md:hidden flex items-center gap-2 px-2 py-[30px]  justify-between fixed bg-gray ">
         <div className="flex gap-3 items-center text-[20px]">
-          <GiHamburgerMenu className="" onClick={handelClick} />
+          <div className="nav-right text-[20px]">
+            <IoMdMenu
+              ref={menuBtn}
+              id="menu-btn"
+              onClick={handleClick}
+              className="md:hidden"
+            />
+          </div>
         </div>
         <h1 className="text-green text-[20px] font-semibold flex items-center">
           SATISFIED <span className="text-black">JOB</span>
@@ -134,7 +189,6 @@ const Header = () => {
             </>
           )}
         </div>
-        {sidebar && <Sidebar sideRef={sideRef} funSideBar={handelClick} />}
       </div>
     </div>
   );
@@ -146,10 +200,7 @@ function PopUp({ handelLogout }) {
   const { student, error } = useSelector((state) => state.student);
   const { employee, error: error2 } = useSelector((state) => state.employee);
   return (
-    <div
-      className="transition ease-in-out delay-150 bg-blue-500 text-center w-[150px] h-[100px] bg-white flex flex-col gap-2  justify-center absolute right-[20px] pl-[15px] top-[110%] text-[#7C7C7C]"
-
-    >
+    <div className="transition ease-in-out delay-150 bg-blue-500 text-center w-[150px] h-[100px] bg-white flex flex-col gap-2  justify-center absolute right-[20px] pl-[15px] top-[110%] text-[#7C7C7C]">
       {student && <Link href={"/profile"}>Your Profile</Link>}
       {employee && <Link href={"/dashboard"}>Dashboard</Link>}
       <button onClick={handelLogout}>Logout</button>
@@ -157,80 +208,84 @@ function PopUp({ handelLogout }) {
   );
 }
 
-function Sidebar({ funSideBar, sideRef }) {
-  return (
-    <div>
-      <div
-        ref={sideRef} style={{ transition: "all 0.5s" }}
-        // style={{ transform: "translateX(-100%)" }}
-        className="fixed z-50 w-[70vw] h-[100vh] top-0 left-0 bg-cyan-700 px-[20px] py-[20px] rounded-r-lg "
-      >
-        <Link
-          href={"/"}
-          className="text-white text-[15px] font-semibold flex items-center"
-        >
-          {/* <img src="./logo.png" className="w-[40px] h-[40px]" alt="" /> */}
-          SATISFIED <span className="text-black">JOB</span>
-        </Link>
+// function Sidebar({ funSideBar, sideRef, sidebar }) {
+//   return (
+//     <div>
+//       <div
+//         ref={sideRef}
+//         style={{ transition: "all 0.5s" }}
+//         // style={{ transform: "translateX(-100%)" }}
 
-        <div className="py-[50px] flex flex-col gap-4">
-          <Link
-            href="/Job"
-            className="flex items-center  gap-2 text-white text-[16px] capitalize"
-          >
-            <BsBagFill />
+//         className={`fixed z-50  ${
+//           sidebar ? "w-[40vw]" : "w-0"
+//         } h-[100vh] top-0 left-0 bg-[#4F91CE] px-[20px] py-[20px] rounded-r-lg  transition-transform duration-3000 ease-in-out `}
+//       >
+//         <Link
+//           href={"/"}
+//           className="text-white text-[15px] font-semibold flex items-center"
+//         >
+//           {/* <img src="./logo.png" className="w-[40px] h-[40px]" alt="" /> */}
+//           SATISFIED <span className="text-black">JOB</span>
+//         </Link>
 
-            <p>Job</p>
-          </Link>
+//         <div className="py-[50px] flex flex-col gap-4">
+//           <Link
+//             href="/Job"
+//             className="flex items-center  gap-2 text-white text-[16px] capitalize"
+//           >
+//             <BsBagFill />
 
-          <Link
-            href={"/profile"}
-            className="flex items-center  gap-2 text-white text-[16px] capitalize"
-          >
-            <MdDepartureBoard />
-            <p>Profile</p>
-          </Link>
+//             <p>Job</p>
+//           </Link>
 
-          <Link
-            href={"/applied"}
-            className="flex items-center  gap-2 text-white text-[16px] capitalize"
-          >
-            <BsBagFill />
-            <p>Applied Status</p>
-          </Link>
-          <hr className="text-white" />
-          <div className="text-[14px] flex flex-col gap-4">
-            <div className="flex items-center  justify-between gap-2 text-white  capitalize">
-              <p>Job by type</p>
-              <MdOutlineKeyboardArrowDown className="text-[24px]" />
-            </div>
+//           <Link
+//             href={"/profile"}
+//             className="flex items-center  gap-2 text-white text-[16px] capitalize"
+//           >
+//             <MdDepartureBoard />
+//             <p>Profile</p>
+//           </Link>
 
-            <div className="flex items-center  justify-between gap-2 text-white  capitalize">
-              <p>Job by city</p>
-              <MdOutlineKeyboardArrowDown className="text-[24px]" />
-            </div>
+//           <Link
+//             href={"/applied"}
+//             className="flex items-center  gap-2 text-white text-[16px] capitalize"
+//           >
+//             <BsBagFill />
+//             <p>Applied Status</p>
+//           </Link>
+//           <hr className="text-white" />
+//           <div className="text-[14px] flex flex-col gap-4">
+//             <div className="flex items-center  justify-between gap-2 text-white  capitalize">
+//               <p>Job by type</p>
+//               <MdOutlineKeyboardArrowDown className="text-[24px]" />
+//             </div>
 
-            <div className="flex items-center  justify-between gap-2 text-white  capitalize">
-              <p>Job by Department</p>
-              <MdOutlineKeyboardArrowDown className="text-[24px]" />
-            </div>
+//             <div className="flex items-center  justify-between gap-2 text-white  capitalize">
+//               <p>Job by city</p>
+//               <MdOutlineKeyboardArrowDown className="text-[24px]" />
+//             </div>
 
-            <div className="flex items-center  justify-between gap-2 text-white  capitalize">
-              <p>Job by company</p>
-              <MdOutlineKeyboardArrowDown className="text-[24px]" />
-            </div>
+//             <div className="flex items-center  justify-between gap-2 text-white  capitalize">
+//               <p>Job by Department</p>
+//               <MdOutlineKeyboardArrowDown className="text-[24px]" />
+//             </div>
 
-            <div className="flex items-center  justify-between gap-2 text-white  capitalize">
-              <p>other</p>
-              <MdOutlineKeyboardArrowDown className="text-[24px]" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        onClick={funSideBar}
-        className="w-[30vw] h-[100vh] absolute  right-0 top-0"
-      ></div>
-    </div>
-  );
-}
+//             <div className="flex items-center  justify-between gap-2 text-white  capitalize">
+//               <p>Job by company</p>
+//               <MdOutlineKeyboardArrowDown className="text-[24px]" />
+//             </div>
+
+//             <div className="flex items-center  justify-between gap-2 text-white  capitalize">
+//               <p>other</p>
+//               <MdOutlineKeyboardArrowDown className="text-[24px]" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <div
+//         onClick={funSideBar}
+//         className="w-[30vw] h-[100vh] absolute  right-0 top-0"
+//       ></div>
+//     </div>
+//   );
+// }

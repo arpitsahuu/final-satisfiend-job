@@ -7,6 +7,7 @@ const Profile = () => {
   const { employee, error: error } = useSelector((state) => state.employee);
   const [editMode, setEditMode] = useState(false);
   const dispatch = useDispatch();
+  let avatar = {};
 
   const {
     register,
@@ -43,14 +44,15 @@ const Profile = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setSelectedFile(file);
+    // setSelectedFile(file);
+    avatar = file;
     btnRef.current.click();
   };
 
   const handleSubmitlogo = async (event) => {
     event.preventDefault();
-    if (selectedFile) {
-      dispatch(avatarEmployee(selectedFile));
+    if (avatar) {
+      dispatch(avatarEmployee(avatar));
     } else {
       console.log("No file selected");
     }

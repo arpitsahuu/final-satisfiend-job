@@ -6,12 +6,13 @@ import { IoCashOutline, IoLocation } from "react-icons/io5";
 import { MdOutlineNotStarted } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import Filter from "../Filter";
-useState;
+useState
 const ViewAllJobs = ({ setTab, setId }) => {
   const { jobs } = useSelector((e) => e.Jobs);
   const { employee, error } = useSelector((e) => e.employee);
   const [jobFilters, setJobFilters] = useState({});
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(allJobs(jobFilters));
@@ -25,8 +26,9 @@ const ViewAllJobs = ({ setTab, setId }) => {
         <div className="left">
           <h1>Total Jobs Posted ({jobs?.length})</h1>
           <div className="flex">
-            <Filter setJobFilters={setJobFilters} />
+          <Filter setJobFilters={setJobFilters}/>
           </div>
+         
         </div>
         {/* <div className="right">
             <button onClick={()=>setTab("ViewAllJobs")}>
@@ -65,12 +67,10 @@ const ViewAllJobs = ({ setTab, setId }) => {
                       </h1>
 
                       <div className="flex gap-2">
-                        {skills.map((e, i) => {
+                        {skills.map((e,i) => {
                           return (
                             <>
-                              <p key={i} className="text-sm text-[#8A8A8A]">
-                                {e}
-                              </p>
+                              <p key={i} className="text-sm text-[#8A8A8A]">{e}</p>
                             </>
                           );
                         })}
