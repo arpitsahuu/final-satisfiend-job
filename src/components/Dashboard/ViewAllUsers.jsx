@@ -28,6 +28,12 @@ const config = () => {
     };
 };
 
+const DeletUser = async (id) =>{
+  const response = await axios.post(`${basePath}/admin/delete/user/${id}`, null, config()
+  );
+  setUsers(response.data.user);
+}
+
   
   
 
@@ -69,7 +75,7 @@ useEffect(() => {
             <h4>{user.firstname} {user.lastname}</h4>
             <h4>{user.email}</h4>
             <div className="w-full px-5">
-            <button className="">Delete</button>
+            <button onClick={() =>DeletUser(user._id)} className="">Delete</button>
             </div>
         </div>
         ))}

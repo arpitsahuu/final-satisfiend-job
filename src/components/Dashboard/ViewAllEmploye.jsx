@@ -28,7 +28,11 @@ const config = () => {
     };
 };
 
-  
+const MakeEmployeAdmin = async (id) =>{
+  const response = await axios.post(`${basePath}/admin/make/${id}`, null, config()
+  );
+  setemploye(response.data.employe);
+} 
   
 
 //   useEffect( async () => {
@@ -69,7 +73,8 @@ useEffect(() => {
             <h4>{employ.firstname} {employ.lastname}</h4>
             <h4>{employ.email}</h4>
             <div className="w-full px-5">
-            <button className="">Make Admin</button>
+            { employ.isAdmin ? <button className="">Admin</button> : <button className="" onClick={() =>MakeEmployeAdmin(employ._id)} >Make Admin</button>}  
+            
             </div>
         </div>
         ))}
