@@ -160,7 +160,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="w-full flex justify-center items-center gap-5  mt-32">
+          <div className="w-full flex justify-center items-center gap-5 mt-24 sm:mt-32">
             <button className="effectSerchbtnone  font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2">
               {" "}
               Remote <FaChevronRight className=" text-slate-600" />
