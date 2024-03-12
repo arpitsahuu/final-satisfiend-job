@@ -25,7 +25,7 @@ const ViewAllJobs = ({ setTab, setId }) => {
       <div className="sub-nav">
         <div className="left">
           <h1>Total Jobs Posted ({jobs?.length})</h1>
-          <div className="flex">
+          <div className="flex w-full">
           <Filter setJobFilters={setJobFilters}/>
           </div>
          
@@ -36,7 +36,7 @@ const ViewAllJobs = ({ setTab, setId }) => {
             </button>
         </div> */}
       </div>
-      <div className="viewAllJobs-content flex  items-center justify-start flex-wrap ">
+      <div className="viewAllJobs-content flex  items-center justify-center flex-wrap ">
         {jobs?.map(
           ({
             _id,

@@ -77,7 +77,7 @@ export default function Home() {
             id="serchmaindiv"
             className=" rounded-xl  serchperent bg-white h-16  m-auto flex mt-8 relative "
           >
-            <button
+            <button id="mainserchbtnserch"
               className=" absolute bg-[#2ea1e0] py-2 px-6 rounded-2xl top-[12px] right-3 text-white "
               onClick={searchJobs}
             >
@@ -85,7 +85,7 @@ export default function Home() {
             </button>
 
             <div className="absolute top-[25px] left-5 ">
-              <FaSearch className="text-[15px]" />
+              <FaSearch id="searchicanbor" className="text-[15px]" />
             </div>
 
             <input

@@ -13,6 +13,8 @@ import { useRouter } from "next/router";
 import { MdWork } from "react-icons/md";
 import { FaChalkboardUser } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
+import { ImFacebook2 } from "react-icons/im";
+import { BsTwitterX } from "react-icons/bs";
 
 const Layout = ({ children, setTab, tab }) => {
   const router = useRouter();
@@ -62,62 +64,77 @@ const Layout = ({ children, setTab, tab }) => {
       flag = 0;
     }
   };
-  const handleLinkClick = (value) =>{
-    handleClick()
+  const handleLinkClick = (value) => {
+    console.log(value);
+    handleClick();
     setTab(value);
-  }
+  };
 
   return (
     <div>
       <div className="main">
         <div className="dashboard">
           <div className="sidebar" ref={sidebar}>
-            <RxCross1  className=" absolute right-5 top-4 block  md:hidden  " onClick={handleClick} />
+            <RxCross1
+              className=" absolute right-5 top-4 block  md:hidden  "
+              onClick={handleClick}
+            />
             <div className="text-center text-2xl font-semibold cursor-pointer">
-              <Link  href={"/"}>SatisfiedJob</Link>
+              <Link href={"/"}>SatisfiedJob</Link>
             </div>
             <div className="sidebar-links">
               <link href="/index.html" />
-              <h3
-                className={`flex items-center gap-1  cursor-pointer ${
-                  tab === "Main" ? "bg-white text-black" : ""
-                }`}
-                onClick={() => handleLinkClick("Main")}
-              >
-                <MdDashboard /> Dashboard
-              </h3>
+              {!employee?.isAdmin && (
+                <h3
+                  className={`flex items-center gap-1  cursor-pointer ${
+                    tab === "Main" ? "bg-white text-black" : ""
+                  }`}
+                  onClick={() => handleLinkClick("Main")}
+                >
+                  <MdDashboard /> Dashboard
+                </h3>
+              )}
+              
               <h3
                 className={`flex items-center gap-1 cursor-pointer  ${
                   tab === "Profile" ? "bg-white text-black" : ""
                 }`}
-                onClick={() => setTab("Profile")}
+                onClick={() => handleLinkClick("Profile")}
               >
                 <CgProfile /> Profile
               </h3>
-              <h3
+              {
+                !employee?.isAdmin &&
+                <h3
                 className={`flex items-center gap-1  cursor-pointer  ${
                   tab === "ViewAllJobs" ? "bg-white text-black" : ""
                 }`}
-                onClick={() => setTab("ViewAllJobs")}
+                onClick={() => handleLinkClick("ViewAllJobs")}
               >
                 <FaUsersViewfinder /> View all jobs
               </h3>
-              <h3
+              }
+              {
+                !employee?.isAdmin && 
+                <h3
                 className={`flex items-center gap-1  cursor-pointer ${
                   tab === "CreateJob" ? "bg-white text-black" : ""
                 }`}
-                onClick={() => setTab("CreateJob")}
+                onClick={() => handleLinkClick("CreateJob")}
               >
                 <CiEdit /> Create Job
               </h3>
+              }
+             
+              
               {employee?.isAdmin && (
                 <h3
                   className={`flex items-center gap-1  cursor-pointer ${
                     tab === "AllUsers" ? "bg-white text-black" : ""
                   }`}
-                  onClick={() => setTab("AllUsers")}
+                  onClick={() => handleLinkClick("AllUsers")}
                 >
-                  <FaChalkboardUser  /> All Users
+                  <FaChalkboardUser /> All Users
                 </h3>
               )}
               {employee?.isAdmin && (
@@ -125,7 +142,7 @@ const Layout = ({ children, setTab, tab }) => {
                   className={`flex items-center gap-1  cursor-pointer ${
                     tab === "AllEmploye" ? "bg-white text-black" : ""
                   }`}
-                  onClick={() => setTab("AllEmploye")}
+                  onClick={() => handleLinkClick("AllEmploye")}
                 >
                   <FaChalkboardUser /> All Employe
                 </h3>
@@ -135,18 +152,18 @@ const Layout = ({ children, setTab, tab }) => {
                   className={`flex items-center gap-1  cursor-pointer ${
                     tab === "" ? "bg-white text-black" : ""
                   }`}
-                  onClick={() => setTab("WebsiteJobs")}
+                  onClick={() => handleLinkClick("WebsiteJobs")}
                 >
                   <FaUsersViewfinder /> Website Jobs
                 </h3>
               )}
             </div>
-            <div className="social-links">
+            <div className="social-links flex gap-5">
               <h5>
-                <i className="ri-facebook-circle-fill" /> Facebook
+                <ImFacebook2 />
               </h5>
               <h5>
-                <i className="ri-twitter-fill" /> Twitter
+                <BsTwitterX />
               </h5>
             </div>
           </div>

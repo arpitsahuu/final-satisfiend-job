@@ -47,7 +47,7 @@ const RegisterUser = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-sky-700 ">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-sky-700  px-10">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -81,12 +81,18 @@ const RegisterUser = () => {
           </div>
         </div>
       </div>
-      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex bg-cyan-700		text-white md:bg-white md:text-black  flex-col justify-center items-center">
-        <h1 className="text-3xl capitalize font-semibold my-5">Sign Up</h1>
+      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex	md:bg-white md:text-black  flex-col justify-center items-center">
+      <Link
+          href={"/"}
+          className="text-green text-[33px] font-semibold flex items-center"
+        >
+          SATISFIED <span className="text-black">JOB</span>
+        </Link>
+        <h1 className="text-2xl capitalize font-semibold my-5">Welcome</h1>
 
         <form
           onSubmit={onSubmit}
-          className="flex w-full md:w-[50%] flex-col  gap-[10px] items-center justify-center"
+          className="flex w-[300px] md:w-[50%] flex-col  gap-[10px] items-center justify-center"
         >
           <div className="w-full">
             <p className="text-[18px] my-2 font-[500]">First Name</p>
@@ -148,14 +154,14 @@ const RegisterUser = () => {
             )}
           </div>
           <div></div>
-          <button className="bg-blue-500 hover:bg-sky-700 w-[100%] text-white bg-green font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  border-2 hover:text-white mt-4">
+          <button className="bg-blue-500 rounded-3xl  bg-[#0265ff]  w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2 hover:text-white mt-4">
       Register
     </button>
 
     <p className="text-sm mt-2">
-      Already have an account{" "}?
-      <Link href="/loginUser" className="text-white-400 hover:underline">
-        Login
+      Already have an account ?{"  "}
+      <Link href="/loginUser" className="text-green hover:underline">
+         Login
       </Link>
     </p>
         </form>

@@ -510,8 +510,8 @@ nav {
     transform: translateX(-100%);
     transition: all 0.3s ease;
     width: 250px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .dashboard-content {
@@ -557,7 +557,7 @@ nav {
   }
 
 
-  .sidebar .social-links {
+  .sidebar  {
     flex-direction: column;
   }
 
@@ -1012,6 +1012,20 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
     width: 460px;
     right: 0;
   }
+  #alljobsfilteremploye{
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  #jobTitle{
+    width: 390px;
+  }
+  #location{
+    width: 390px;
+  }
+  #jobType{
+    width: 390px;
+  }
   
   
   
@@ -1075,11 +1089,21 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   
   #serchmaindiv{
     width: 300px;
-    padding-left: 35px;
+    height: 50px;
+    padding-left: 12px;
+    -webkit-box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
+    -moz-box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
+  }
+  #searchicanbor{
+    display: none;
+  }
+  #mainserchbtnserch{
+    right: 5px;
+    top: 6px;
   }
   #search{
     width: 300px;
-    font-size: 10px;
+    font-size: 12px;
   }
   #search::placeholder {
     content: "Enter jobs skills"; 
@@ -1114,5 +1138,20 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   }
   #serchdivlocation{
     display: none;
+  }
+
+  #alljobsfilteremploye{
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  #jobTitle{
+    width: 200px;
+  }
+  #location{
+    width: 200px;
+  }
+  #jobType{
+    width: 200px;
   }
 }

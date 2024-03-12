@@ -55,10 +55,10 @@ useEffect(() => {
   return (
     <>
     <div className="mx-10 mt-4">
-    <label for="jobTitle" class="text-sm font-medium text-gray-800 text-nowrap">Search Studnt :</label>
+    <label for="" class="text-sm font-medium text-gray-800 text-nowrap">Search Studnt :</label>
   <input 
     type="text"
-    id="jobTitle"
+    id=""
     placeholder="Search by Student Firsrname / Lastname / email "
     class="border rounded-[15px] p-2 w-[4vw] focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
     onChange={(e) => setSearchTerm(e.target.value)}
@@ -66,7 +66,7 @@ useEffect(() => {
     </div>
     {
         users &&
-        <div className=" py-10 px-16 viewAllJobs-content flex  items-center justify-center flex-wrap">
+        <div className=" py-10 px-5 sm:px-16 viewAllJobs-content flex  items-center justify-center flex-wrap">
         {users?.map((user) =>(
         <div className=" h-[200px] w-[180px] border bg-white border-slate-300 rounded-xl flex flex-col items-center justify-center ">
             <div>

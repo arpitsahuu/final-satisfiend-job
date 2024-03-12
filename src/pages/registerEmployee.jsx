@@ -31,11 +31,11 @@ const RegisterEmployee = () => {
     }
   }, [employee]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(error);
+  //   }
+  // }, [error]);
 
 
   return (
@@ -48,7 +48,7 @@ const RegisterEmployee = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-cyan-700">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-cyan-700 px-10">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -82,14 +82,19 @@ const RegisterEmployee = () => {
           </div>
         </div>
       </div>
-      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex bg-cyan-700 text-white md:bg-white md:text-black  flex-col justify-center items-center">
-        <h1 className="text-3xl capitalize font-semibold my-5">
-          Sign Up Employee{" "}
-        </h1>
+      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex   md:bg-white md:text-black  flex-col justify-center items-center">
+      <Link
+          href={"/"}
+          className="text-green text-[33px] font-semibold flex items-center"
+        >
+          SATISFIED <span className="text-black">JOB</span>
+        </Link>
+       
+        
 
         <form
           onSubmit={onSubmit}
-          className="flex w-full md:w-[50%] flex-col  gap-[10px] items-center justify-center"
+          className="flex w-[300px] md:w-[50%] flex-col  gap-[10px] items-center justify-center"
         >
           <div className="flex justify-between w-full gap-1">
             <div className="w-full">
@@ -98,7 +103,7 @@ const RegisterEmployee = () => {
                 type="text"
                 style={{ border: "2px solid #D1CED4" }}
                 className="  px-3 py-2  w-[100%] rounded-md outline-none"
-                placeholder="please enter your First Name"
+                placeholder="First Name"
                 {...register("firstname", { required: true })}
               />
               {errors.firstname && (
@@ -114,7 +119,7 @@ const RegisterEmployee = () => {
                 type="text"
                 style={{ border: "2px solid #D1CED4" }}
                 className="  px-3 py-2  w-[100%] rounded-md outline-none"
-                placeholder="please enter your First Name"
+                placeholder="First Name"
                 {...register("lastname", { required: true })}
               />
               {errors.lastname && (
@@ -181,12 +186,12 @@ const RegisterEmployee = () => {
             )}
           </div>
           <div></div>
-          <button className="transition duration-300 ease-in-out bg-blue-500 hover:bg-sky-700 w-[100%] text-white bg-green font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  border-2  ">
+          <button className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#0265ff] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
             Register
           </button>
           <p>
             All ready have a account{" "}?
-            <Link href="/loginEmployee" className="md:text-green">
+            <Link href="/loginEmployee" className="text-green">
               {" "}
               Login
             </Link>
