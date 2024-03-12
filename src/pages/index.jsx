@@ -67,7 +67,7 @@ export default function Home() {
     <div className="w-[100vw]">
       <Layout>
         <Container bgColor={""}>
-          <h2 className="mt-24 sm:mt-28  sm:text-5xl  text-gray-600 py-5 text-center font-bold text-2xl px-11 ">
+          <h2 className="mt-28 sm:mt-28  sm:text-5xl  text-gray-600 py-5 text-center font-bold text-2xl px-11 ">
             Find your dream job now
           </h2>
           <h4 className=" font-medium uppercase text-center text-sm mt-2 sm:text-lg">
