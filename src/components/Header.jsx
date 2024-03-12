@@ -11,6 +11,7 @@ import { IoLogoSnapchat, IoPerson } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsBagFill, BsPersonFill, BsPersonFillAdd } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -114,7 +115,11 @@ const Header = () => {
       </div>
 
       <>
-        <div className="sidebar z-50 md:hidden" ref={sidebar}>
+        <div className="sidebar z-50 md:hidden relative" ref={sidebar}>
+          <RxCross1  className=" absolute right-5 top-4" onClick={handleClick} />
+        {/* <div className="flex justify-end pe-5 ">
+        <RxCross1 />
+        </div> */}
           <div className="text-center text-2xl font-semibold cursor-pointer">
             <Link href={"/"}>SatisfiedJob</Link>
           </div>

@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { MdWork } from "react-icons/md";
 import { FaChalkboardUser } from "react-icons/fa6";
+import { RxCross1 } from "react-icons/rx";
 
 const Layout = ({ children, setTab, tab }) => {
   const router = useRouter();
@@ -61,14 +62,19 @@ const Layout = ({ children, setTab, tab }) => {
       flag = 0;
     }
   };
+  const handleLinkClick = (value) =>{
+    handleClick()
+    setTab(value);
+  }
 
   return (
     <div>
       <div className="main">
         <div className="dashboard">
           <div className="sidebar" ref={sidebar}>
+            <RxCross1  className=" absolute right-5 top-4 block  md:hidden  " onClick={handleClick} />
             <div className="text-center text-2xl font-semibold cursor-pointer">
-              <Link href={"/"}>SatisfiedJob</Link>
+              <Link  href={"/"}>SatisfiedJob</Link>
             </div>
             <div className="sidebar-links">
               <link href="/index.html" />
@@ -76,7 +82,7 @@ const Layout = ({ children, setTab, tab }) => {
                 className={`flex items-center gap-1  cursor-pointer ${
                   tab === "Main" ? "bg-white text-black" : ""
                 }`}
-                onClick={() => setTab("Main")}
+                onClick={() => handleLinkClick("Main")}
               >
                 <MdDashboard /> Dashboard
               </h3>
