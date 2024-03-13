@@ -47,7 +47,7 @@ const RegisterUser = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-sky-700  px-10">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED]  px-10">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -84,7 +84,7 @@ const RegisterUser = () => {
       <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex	md:bg-white md:text-black  flex-col justify-center items-center">
       <Link
           href={"/"}
-          className="text-green text-[33px] font-semibold flex items-center"
+          className="text-[#4080ED] text-[33px] font-semibold flex items-center"
         >
           SATISFIED <span className="text-black">JOB</span>
         </Link>
@@ -154,13 +154,13 @@ const RegisterUser = () => {
             )}
           </div>
           <div></div>
-          <button className="bg-blue-500 rounded-3xl  bg-[#0265ff]  w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2 hover:text-white mt-4">
+          <button className="bg-blue-500 rounded-3xl  bg-[#4080ED]  w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2 hover:text-white mt-4">
       Register
     </button>
 
     <p className="text-sm mt-2">
       Already have an account ?{"  "}
-      <Link href="/loginUser" className="text-green hover:underline">
+      <Link href="/loginUser" className="text-[#4080ED] hover:underline">
          Login
       </Link>
     </p>

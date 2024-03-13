@@ -48,7 +48,7 @@ const RegisterEmployee = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-cyan-700 px-10">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED] px-10">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -85,7 +85,7 @@ const RegisterEmployee = () => {
       <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex   md:bg-white md:text-black  flex-col justify-center items-center">
       <Link
           href={"/"}
-          className="text-green text-[33px] font-semibold flex items-center"
+          className="text-[#4080ED] text-[33px] font-semibold flex items-center"
         >
           SATISFIED <span className="text-black">JOB</span>
         </Link>
@@ -186,12 +186,12 @@ const RegisterEmployee = () => {
             )}
           </div>
           <div></div>
-          <button className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#0265ff] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
+          <button className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#4080ED] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
             Register
           </button>
           <p>
             All ready have a account{" "}?
-            <Link href="/loginEmployee" className="text-green">
+            <Link href="/loginEmployee" className="text-[#4080ED]">
               {" "}
               Login
             </Link>

@@ -34,7 +34,6 @@ export default function Home() {
   const basePath = `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/user`;
 
   const searchJobs = async () => {
-    console.log("called");
     const response = await axios.post(
       `${basePath}/search?q=${searchTerm}&location=${searchLocation}`
     );
@@ -78,7 +77,7 @@ export default function Home() {
             className=" rounded-xl  serchperent bg-white h-16  m-auto flex mt-8 relative "
           >
             <button id="mainserchbtnserch"
-              className=" absolute bg-[#2ea1e0] py-2 px-6 rounded-2xl top-[12px] right-3 text-white "
+              className=" absolute bg-[#4080ED] py-2 px-6 rounded-2xl top-[12px] right-3 text-white "
               onClick={searchJobs}
             >
               Serch
@@ -337,7 +336,7 @@ export default function Home() {
                 >
                   <div className="flex gap-4 pb-1 ">
                     <img
-                      src="./googlelogo.png"
+                      src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710311927/avaters/padkgv4yvswh2qzu0ybv.png"
                       className="w-[45px] rounded-lg"
                       alt=""
                     />
@@ -388,7 +387,7 @@ export default function Home() {
                 >
                   <div className="flex gap-4 pb-1 ">
                     <img
-                      src="./googlelogo.png"
+                      src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710311927/avaters/padkgv4yvswh2qzu0ybv.png"
                       className="w-[45px] rounded-lg"
                       alt=""
                     />
@@ -415,7 +414,7 @@ export default function Home() {
           </div>
 
           <div className="w-full text-center my-16 ">
-            <button className="btn flex items-center justify-center">
+            <button className=" m-auto text-white py-3 px-4 rounded-md  font-medium bg-[#4080ED] flex items-center justify-center">
               <span className="flex items-center gap-1 px-2">
                 <p>View all</p>
                 <RiArrowRightSLine className="text-lg" />

@@ -266,14 +266,16 @@ const Profile = () => {
                 </button>
               </form>
             </div>
+            { student?.resumePdf?.fileId && <h6 className=" font-normal text-sm text-slate-500">Resume added</h6> }
             <button
-              className="w-full hover:bg-sky-800 py-2 px-4 bg-sky-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-200 ease-in-out"
+              className="w-full hover:bg-green py-2 px-4 bg-green text-white font-medium rounded-md hover:bg-blue-700 transition duration-200 ease-in-out"
               onClick={() => handleResumeClick()}
             >
               Add resume
             </button>
+            <h6 className=" font-normal text-slate-500 mt-1">Generate ATS Friendly Resume in Just few Clicks</h6>
             <button
-              className="w-full hover:bg-sky-800 py-2 px-4 bg-sky-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-200 ease-in-out"
+              className="w-full hover:bg-[#4080ED] py-2 px-4 bg-green text-white font-medium rounded-md hover:bg-blue-700 transition duration-200 ease-in-out"
               onClick={handlCreateResume}
             >
               Create resume

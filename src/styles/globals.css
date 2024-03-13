@@ -10,11 +10,12 @@
 /* Add your media queries here if needed */
 
 :root {
-  --tw-green: #4f91ce;
+  --tw-green: #4080ED;
   --tw-text: #190A28;
   --tw-blue: #0074E8;
   --tw-gray: #F4F2F6;
   --tw-purple: #190A28;
+  --tw-demoblue: #4080ED ;
 }
 
 
@@ -338,7 +339,7 @@ body {
 .sidebar {
   height: 100%;
   width: 20%;
-  background-color: #0B60B0;
+  background-color: #4080ED;
   color: #fff;
   padding: 30px 0;
   /* position: relative; */
@@ -955,6 +956,10 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
 
   font-size: 19px;
 
+}
+
+#Employelongintitle{
+  border-radius: 0 0 10px 10px;
 }
 
 

@@ -66,7 +66,7 @@ useEffect(() => {
         employes &&
         <div className="py-5  sm:py-10 px-5 sm:px-16  viewAllJobs-content flex  items-center justify-center flex-wrap">
         {employes?.map((employ) =>(
-        <div className=" h-[200px] w-[180px] border bg-white border-slate-300 rounded-xl flex flex-col items-center justify-center overflow-hidden ">
+        <div className=" h-[200px] sm:w-[180px] w-[300px] border bg-white border-slate-300 rounded-xl flex flex-col items-center justify-center overflow-hidden ">
             <div>
                 <img src={employ.organisationlogo.url} alt="" className="w-[50px] h-[50px] rounded-full" />
             </div>

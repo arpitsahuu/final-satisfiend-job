@@ -48,7 +48,7 @@ const LoginEmployee = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%]   hidden md:flex h-[100vh]  flex-col items-center py-[100px]  md:bg-sky-800 px-10">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%]   hidden md:flex h-[100vh]  flex-col items-center py-[100px]  bg-[#4080ED] px-10 ">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -82,17 +82,20 @@ const LoginEmployee = () => {
           </div>
         </div>
       </div>
-      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex md:bg-white md:text-black  flex-col justify-center items-center">
-        <Link
+      <div className="w-[100%]  md:w-[60%] h-[100vh] flex md:bg-white md:text-black  flex-col  items-center justify-start sm:justify-center ">
+      <div id="Employelongintitle" className="bg-[#4080ED] w-full h-[21%] pt-[10vh] block sm:hidden " >
+        {/* <Link
           href={"/"}
-          className="text-green text-[33px] font-semibold flex items-center"
+          className="text-white text-[33px] font-semibold flex items-center"
         >
-          SATISFIED <span className="text-black">JOB</span>
-        </Link>
-        <h1 className="text-3xl md:text-4xl font-semibold capitalize my-5 text-gray-800 ">
+          SATISFIED <span className="">JOB</span>
+        </Link> */}
+        <h1 className=" text-white text-[33px] font-semibold text-center">SATISFIED JOB</h1>
+       
+        </div>
+        <h1 className="text-2xl md:text-4xl font-semibold capitalize mt-14 mb-10 sm:mt-6 sm:mb-6 text-gray-800  ">
           Welcome Back
         </h1>
-
         <form
           onSubmit={onSubmit}
           className="flex w-[300px] md:w-[50%] flex-col  gap-[10px] items-center justify-center"
@@ -129,18 +132,18 @@ const LoginEmployee = () => {
             )}
           </div>
           <div></div>
-          <button className="bg-blue-500 hover:bg-blue-700 w-[100%] text-white bg-green font-bold py-2 px-4 focus:outline-none focus:shadow-outline rounded-3xl  bg-[#0265ff] border-2  transition duration-300 ease-in-out">
+          <button className="bg-blue-500 hover:bg-blue-700 w-[100%] text-white bg-green font-bold py-2 px-4 focus:outline-none focus:shadow-outline rounded-3xl  bg-[#4080ED] border-2  transition duration-300 ease-in-out">
             Login
           </button>
 
           <p>
             All ready have a account{" "}
-            <Link href="/registerEmployee" className="text-green">
+            <Link href="/registerEmployee" className="text-[#4080ED]">
               {" "}
               Sign up
             </Link>
           </p>
-          <Link href="/admin/sendMail" className="text-sm text-blue">
+          <Link href="/admin/sendMail" className="text-sm text-[#4080ED]">
                 forget password
               </Link>
         </form>

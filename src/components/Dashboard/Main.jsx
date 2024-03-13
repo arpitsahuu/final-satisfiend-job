@@ -7,12 +7,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { allApplications, updateStatus } from "@/redux/actions/employeeAction";
 import { useRouter } from "next/router";
 import Filter from "./FilterApplications";
+import Link from "next/link";
+import { allJobs } from "@/redux/actions/jobAction";
+import axios from "axios";
+// import { Bar } from 'react-chartjs-2';
+import {Bar} from "chart.js"
+
 const Main = () => {
   const router = useRouter();
+  const basePath = `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}`;
   const [applicationFilter, setapplicationFilters] = useState({});
   const { employee, error, allApplication, loading } = useSelector(
     (state) => state.employee
   );
+  const config = () => {
+    return {
+        headers: {
+            'authorization': localStorage.getItem('token') || '' // Ensure token is always a string
+        },
+        withCredentials: true
+    };
+};
+  const { jobs } = useSelector((e) => e.Jobs);
+  
+  
+  useEffect(() => {
+    dispatch(allJobs());
+  }, []); 
   const dispatch = useDispatch();
   const [statusMap, setStatusMap] = useState({});
 
@@ -29,6 +50,50 @@ const Main = () => {
     }));
   };
 
+  //  ------------------graph---------------------
+  
+  const [data, setData] = useState({
+    labels: ['Today', 'This Month'],
+    datasets: [{
+        label: 'User Registrations',
+        data: [0, 0], // Placeholder data
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+    }]
+});
+
+  const GraphAdmin = async () => {
+    const response = await axios.get(
+      `${basePath}/employer/admin/registration-stats`,config()
+    );
+    let json = response.data;
+    console.log(json)
+    setData({
+      ...data,
+      datasets: [{
+          ...data.datasets[0],
+          data: [json.today, json.thisMonth]
+      }]
+  })
+  console.log(data,"data")
+  };
+
+  // if(employee?.isAdmin){
+  //   // GraphAdmin()
+  //   useEffect(() => {
+  //     GraphAdmin();
+  //   }, [employee.isAdmin])
+  // }
+
+  
+
   useEffect(() => {
     if (allApplication) {
       const initialStatusMap = {};
@@ -38,6 +103,7 @@ const Main = () => {
       setStatusMap(initialStatusMap);
     }
   }, [allApplication]);
+
 
   return (
     <div className="h-[100vh] bg-gray-200 container mx-auto p-4">
@@ -51,12 +117,12 @@ const Main = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="bg-sky-500 text-white p-6 rounded-md flex items-center justify-between">
           <AiOutlineUserAdd className="text-4xl" />
-          <span className="text-2xl ml-4">76 Users Applied</span>
+          <span className="text-2xl ml-4">{allApplication && allApplication.length} Users Applied</span>
         </div>
 
         <div className="bg-orange-500 text-white p-6 rounded-md flex items-center justify-between">
           <FaChartPie className="text-4xl" />
-          <span className="text-2xl ml-4">3 Jobs Posted</span>
+          <span className="text-2xl ml-4">{ jobs && jobs.length} Jobs Posted</span>
         </div>
 
         <div className="bg-yellow-500 text-white p-6 rounded-md flex items-center justify-between">
@@ -64,6 +130,11 @@ const Main = () => {
           <span className="text-2xl ml-4">237 Profile Viewed</span>
         </div>
       </div>
+      {/* { data && 
+      <Bar data={data} />
+
+      } */}
+
 
       <div className="overflow-x-auto mt-8">
         <table className="min-w-full border rounded-lg overflow-hidden">
@@ -72,7 +143,7 @@ const Main = () => {
               <th className="py-2 px-4 font-semibold">Name</th>
               <th className="py-2 px-4 font-semibold">Email</th>
               <th className="py-2 px-4 font-semibold">Job Applied</th>
-              <th className="py-2 px-4 font-semibold">Contact</th>
+              <th className="py-2 px-4 font-semibold">Resume</th>
               <th className="py-2 px-4 font-semibold">Update Status</th>
             </tr>
           </thead>
@@ -86,7 +157,9 @@ const Main = () => {
                 <td className="py-2 px-4 text-center">{e.studentId?.email}</td>
                 <td className="py-2 px-4 text-center">{e.jobId?.title}</td>
                 <td className="py-2 px-4 text-center">
-                  {e.studentId?.contact}
+                {
+                    e.studentId.resumePdf.fileId ? <a href={e.studentId.resumePdf.url}  target="_blank">Doanload</a> : <Link href={`/watchResume/${e.studentId._id}`}>Watch</Link>
+                  }
                 </td>
                 <td className="py-2 px-4 text-center">
                   <select
@@ -103,6 +176,9 @@ const Main = () => {
             ))}
           </tbody>
         </table>
+            { allApplication?.length == 0 && <h1 className=" font-semibold text-center mt-10">No Applicaion yet</h1> }
+        {/* <Bar data={data} /> */}
+        
       </div>
     </div>
   );

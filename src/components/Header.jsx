@@ -63,8 +63,9 @@ const Header = () => {
       <div className=" w-full    hidden md:flex items-center justify-between px-[20px] max-w-screen-xl  py-[20px]  bg-gray z-50 relative">
         <Link
           href={"/"}
-          className="text-green text-[20px] font-semibold flex items-center"
+          className="text-[#4080ED] text-[20px] font-semibold flex items-center"
         >
+          <img className="h-[25px] w-[25px] me-1" src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710332234/avaters/yeixhkqcfb4t15gxgqzh.jpg" alt="" />
           SATISFIED <span className="text-black">JOB</span>
         </Link>
         <div className="flex items-center gap-[20px] font-semibold">
@@ -86,7 +87,7 @@ const Header = () => {
 
               <button
                 onClick={handelLogout}
-                className="px-3 py-1  border-green border-2  hover:text-white hover:bg-green rounded-[5px] text-green"
+                className="px-3 py-1  border-[#4080ED] border-2  hover:text-white hover:bg-[#4080ED] rounded-[5px] text-[#4080ED]"
                 style={{ transition: "all 0.5s" }}
               >
                 Logout
@@ -96,7 +97,7 @@ const Header = () => {
             <>
               <Link
                 href="/loginUser"
-                className="px-3 py-1  border-green border-2  hover:text-white hover:bg-green rounded-[5px] text-green"
+                className="px-3 py-1  border-[#4080ED]  border-2  hover:text-white hover:bg-[#4080ED] rounded-[5px] text-green"
                 style={{ transition: "all 0.5s" }}
               >
                 Student
@@ -104,7 +105,7 @@ const Header = () => {
 
               <Link
                 href="/loginEmployee"
-                className="px-3 py-1  border-green border-2 text-white bg-green hover:bg-transparent hover:text-[#4F91CE]	 rounded-[5px] "
+                className="px-3 py-1  border-green border-2 text-white bg-[#4080ED] hover:bg-transparent hover:text-[#4080ED] 	 rounded-[5px] "
                 style={{ transition: "all 0.5s" }}
               >
                 Employee
@@ -116,7 +117,7 @@ const Header = () => {
 
       <>
         <div className="sidebar z-50 md:hidden relative" ref={sidebar}>
-          <RxCross1  className=" absolute right-5 top-4" onClick={handleClick} />
+          <RxCross1  className=" absolute right-3 top-3" onClick={handleClick} />
         {/* <div className="flex justify-end pe-5 ">
         <RxCross1 />
         </div> */}
@@ -124,38 +125,45 @@ const Header = () => {
             <Link href={"/"}>SatisfiedJob</Link>
           </div>
           <div className="px-[40px] mt-[40px] py-[10px] flex flex-col gap-[40px]">
-            <div className="flex items-center justify-start gap-1">
+            { student && <div className="flex items-center justify-start gap-1">
               <FaHome />
               <Link href="/" className="font-md">
                 <p> Home</p>
               </Link>
-            </div>
+            </div>}
 
-            <div className="flex items-center  justify-start gap-1">
+            { student && <div className="flex items-center  justify-start gap-1">
               <MdWork />
               <Link href="/Job" className="">
                 Jobs
               </Link>
-            </div>
+            </div>}
 
-            <div className="flex items-center  justify-start gap-1">
+            { student && <div className="flex items-center  justify-start gap-1">
               <IoIosBookmark />
               <Link href="/applied" className="">
                 Applied
               </Link>
-            </div>
+            </div>}
 
-            <div className="flex items-center  justify-start  gap-1">
+            { student && <div className="flex items-center  justify-start  gap-1">
               <BsPersonFillAdd />
               <Link href="/profile" className="">
                 Profile
               </Link>
-            </div>
+            </div>}
+            { employee && <div className="flex items-center  justify-start  gap-1">
+              <BsPersonFillAdd />
+              <Link href={"/dashboard"} className="">
+                DashBoard
+              </Link>
+            </div>}
           </div>
         </div>
       </>
 
       <div className="w-[100%] h-[40px]  md:hidden flex items-center gap-2 px-2 py-[30px]  justify-between fixed bg-gray ">
+           
         <div className="flex gap-3 items-center text-[20px]">
           <div className="nav-right text-[20px]">
             <IoMdMenu
@@ -164,8 +172,10 @@ const Header = () => {
               onClick={handleClick}
               className="md:hidden"
             />
+
           </div>
         </div>
+      
         <h1 className="text-green text-[20px] font-semibold flex items-center">
           SATISFIED <span className="text-black">JOB</span>
         </h1>

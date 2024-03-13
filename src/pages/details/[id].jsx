@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Details = () => {
   const router = useRouter();
   const { id } = router.query;
+
   
   
   

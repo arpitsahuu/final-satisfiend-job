@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { loginStudent } from "@/redux/actions/studentAction";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const LoginUser = () => {
   const router = useRouter();
@@ -48,7 +49,7 @@ const LoginUser = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-cyan-700 px-10	">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED] px-10	">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -79,17 +80,30 @@ const LoginUser = () => {
               </div>
               <p>Takes only 4 steps</p>
             </div>
+            <div>
+            <FaFacebookSquare />
+            </div>
           </div>
         </div>
       </div>
-      <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex  md:bg-white md:text-black  flex-col justify-center items-center  md:bg-white  ">
-      <Link
+      <div className="w-[100%]  md:w-[60%] h-[100vh] flex  md:bg-white md:text-black  flex-col  items-center justify-start sm:justify-center">
+      {/* <Link
           href={"/"}
           className="text-green text-[33px] font-semibold flex items-center"
         >
           SATISFIED <span className="text-black">JOB</span>
-        </Link>
-        <h1 className="text-2xl capitalize font-semibold my-5">Welcome Back</h1>
+        </Link> */}
+        <div id="Employelongintitle" className="bg-[#4080ED] w-full h-[21%] pt-[10vh] block sm:hidden " >
+        {/* <Link
+          href={"/"}
+          className="text-white text-[33px] font-semibold flex items-center"
+        >
+          SATISFIED <span className="">JOB</span>
+        </Link> */}
+        <h1 className=" text-white text-[33px] font-semibold text-center">SATISFIED JOB</h1>
+       
+        </div>
+        <h1 className="text-2xl capitalize font-semibold mt-10 mb-10 sm:mt-6 sm:mb-6">Welcome Back</h1>
         {/* <h1 className="text-3xl capitalize font-semibold my-5">Login</h1> */}
 
         <form
@@ -113,6 +127,7 @@ const LoginUser = () => {
           <div className="w-full">
             <div className="flex items-center justify-between">
               <p className="text-[18px] my-2 font-[500] text-slate-800">Password</p>
+           
             </div>
 
             <input
@@ -127,7 +142,7 @@ const LoginUser = () => {
             )}
           </div>
           <div></div>
-          <button className="bg-blue-500 transition duration-300 ease-in-out w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  rounded-3xl  bg-[#0265ff] ">
+          <button className="bg-blue-500 transition duration-300 ease-in-out w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  rounded-3xl  bg-[#4080ED] ">
             Login
           </button>
           <p>

@@ -76,11 +76,11 @@ const Layout = ({ children, setTab, tab }) => {
         <div className="dashboard">
           <div className="sidebar" ref={sidebar}>
             <RxCross1
-              className=" absolute right-5 top-4 block  md:hidden  "
+              className=" absolute right-3 top-3 block  md:hidden  "
               onClick={handleClick}
             />
             <div className="text-center text-2xl font-semibold cursor-pointer">
-              <Link href={"/"}>SatisfiedJob</Link>
+              <Link href={"/"}>Satisfied Job</Link>
             </div>
             <div className="sidebar-links">
               <link href="/index.html" />
@@ -170,7 +170,7 @@ const Layout = ({ children, setTab, tab }) => {
           <div className="dashboard-content ">
             <nav className="flex items-center md:items-start">
               <div className="text-whitep-4 text-center flex flex-col items-center w-full">
-                <h1 className="text-2xl font-semibold">SatisfiedJob</h1>
+                <h1 className="text-2xl font-semibold">Satisfied Job</h1>
                 <h6 className="text-sm">28 Jobs Found</h6>
               </div>
 

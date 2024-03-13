@@ -68,7 +68,7 @@ useEffect(() => {
         users &&
         <div className=" py-10 px-5 sm:px-16 viewAllJobs-content flex  items-center justify-center flex-wrap">
         {users?.map((user) =>(
-        <div className=" h-[200px] w-[180px] border bg-white border-slate-300 rounded-xl flex flex-col items-center justify-center ">
+        <div className=" h-[200px]  sm:w-[180px] w-[300px] border bg-white border-slate-300 rounded-xl flex flex-col items-center justify-center ">
             <div>
                 <img src={user.avatar.url} alt="" className="w-[50px] h-[50px] rounded-full" />
             </div>
