@@ -9,13 +9,13 @@ const WatchResume = () => {
         (state) => state.employee
     );
     if(allApplication){
-      const {studentId} = allApplication?.find((applicaion) => applicaion?.studentId._id == id)
+      const applicaion = allApplication?.find((applicaion) => applicaion?.studentId._id == id)
     }
   
   return (
     <div className="bg-gray-100 p-5 lg:p-10  ">
       {
-        studentId &&
+        allApplication &&
       <div
         className="max-w-4xl mx-auto bg-white shadow-lg  font-bold print:body print:margin-0 print:padding-0 print:box-border print:size-A4 print:portrait screen:@page-size-210mm-297mm screen:margin-0 screen:box-border screen:w-210mm screen:h-297mm "
         id="studentId?.resume"
@@ -23,13 +23,13 @@ const WatchResume = () => {
         <div className="mb-3 flex justify-between px-8 py-8 bg-slate-300">
           <div className="flex justify-center">
             <h1 className=" uppercase text-2xl sm:text-4xl ">
-              {studentId?.firstname} {studentId?.lastname}
+              {allApplication & applicaion?.studentId?.firstname} applicaion?.{allApplication & studentId?.lastname}
             </h1>
           </div>
           <div className=' font-medium text-[10px] sm:text-sm mt-1 " '>
             <ul className="flex  flex-col text-end text-slate-700 ">
-              {studentId?.contact  && <li>+91-{studentId.contact}</li>}
-              <li className="flex"> {studentId?.email}</li>
+              {allApplication & applicaion?.studentId?.contact  && <li>+91-{applicaion?.studentId.contact}</li>}
+              <li className="flex"> {allApplication & applicaion?.studentId?.email}</li>
             </ul>
           </div>
         </div>
@@ -37,7 +37,7 @@ const WatchResume = () => {
        
 
           <h2 className="text-base  mb-3 sm:text-xl sm:mb-2">Education</h2>
-          {studentId?.resume?.education != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.education != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.education?.map((education) => (
                 <div>
@@ -77,7 +77,7 @@ const WatchResume = () => {
             </div>
           )}
           <h2 className="text-base mb-3 sm:text-xl sm:mb-2">Experience</h2>
-          {studentId?.resume?.jobs.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.jobs.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.jobs?.map((job) => (
                 <div>
@@ -108,11 +108,11 @@ const WatchResume = () => {
               ))}
             </div>
           )}
-          {studentId?.resume?.internships?.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.internships?.length != 0 && (
             <h2 className="text-base mb-3 sm:text-xl sm:mb-2">Interships</h2>
           )}
 
-          {studentId?.resume?.internships?.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.internships?.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.internships?.map((intership) => (
                 <div>
@@ -142,10 +142,10 @@ const WatchResume = () => {
               ))}
             </div>
           )}
-          {studentId?.resume?.projects.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.projects.length != 0 && (
             <h2 className="text-base mb-3 sm:text-xl sm:mb-2">Projects</h2>
           )}
-          {studentId?.resume?.projects.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.projects.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.projects?.map((project) => (
                 <div>
@@ -172,10 +172,10 @@ const WatchResume = () => {
             </div>
           )}
 
-          {studentId?.resume?.skills.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.skills.length != 0 && (
             <h2 className="text-base mb-3 sm:text-xl sm:mb-2">Skills</h2>
           )}
-          {studentId?.resume?.skills.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.skills.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.skills?.map((skill) => (
                 <div className="px-3">
@@ -186,13 +186,13 @@ const WatchResume = () => {
               ))}
             </div>
           )}
-          {studentId?.resume.courses && (
+          {allApplication & applicaion?.studentId?.resume.courses && (
             <h2 className="text-base mb-3 sm:text-xl sm:mb-2">
               Course/ Traning
             </h2>
           )}
 
-          {studentId?.resume?.courses.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.courses.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
               {studentId?.resume?.courses?.map((course) => (
                 <div>
@@ -223,12 +223,12 @@ const WatchResume = () => {
             </div>
           )}
 
-          {studentId?.resume.responsibilities && (
+          {allApplication & applicaion?.studentId?.resume.responsibilities && (
             <h2 className="text-base mb-3 sm:text-xl sm:mb-2">
               POSITION OF RESPONSIBILITY
             </h2>
           )}
-          {studentId?.resume?.responsibilities.length != 0 && (
+          {allApplication & applicaion?.studentId?.resume?.responsibilities.length != 0 && (
             <div className=" border-t-2 border-slate-300 py-2 mb-5">
               {studentId?.resume?.responsibilities?.map((res) => (
                 <div>
