@@ -14,6 +14,8 @@ const WatchResume = () => {
   
   return (
     <div className="bg-gray-100 p-5 lg:p-10  ">
+      {
+        studentId &&
       <div
         className="max-w-4xl mx-auto bg-white shadow-lg  font-bold print:body print:margin-0 print:padding-0 print:box-border print:size-A4 print:portrait screen:@page-size-210mm-297mm screen:margin-0 screen:box-border screen:w-210mm screen:h-297mm "
         id="studentId?.resume"
@@ -241,6 +243,8 @@ const WatchResume = () => {
           )}
         </div>
       </div>
+
+      }
       {/* Download Button */}
     </div>
   )
