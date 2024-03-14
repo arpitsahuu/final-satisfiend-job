@@ -84,7 +84,7 @@ const Layout = ({ children, setTab, tab }) => {
             </div>
             <div className="sidebar-links">
               <link href="/index.html" />
-              {!employee?.isAdmin && (
+  
                 <h3
                   className={`flex items-center gap-1  cursor-pointer ${
                     tab === "Main" ? "bg-white text-black" : ""
@@ -93,7 +93,6 @@ const Layout = ({ children, setTab, tab }) => {
                 >
                   <MdDashboard /> Dashboard
                 </h3>
-              )}
               
               <h3
                 className={`flex items-center gap-1 cursor-pointer  ${
@@ -134,7 +133,7 @@ const Layout = ({ children, setTab, tab }) => {
                   }`}
                   onClick={() => handleLinkClick("AllUsers")}
                 >
-                  <FaChalkboardUser /> All Users
+                  <FaChalkboardUser /> All Students
                 </h3>
               )}
               {employee?.isAdmin && (
@@ -144,7 +143,7 @@ const Layout = ({ children, setTab, tab }) => {
                   }`}
                   onClick={() => handleLinkClick("AllEmploye")}
                 >
-                  <FaChalkboardUser /> All Employe
+                  <FaChalkboardUser /> All Employer
                 </h3>
               )}
               {employee?.isAdmin && (

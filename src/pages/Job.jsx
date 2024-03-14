@@ -17,6 +17,7 @@ import Pagination from "@/components/Pagination";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
 import { RotateLoader } from "react-spinners";
+import moment from "moment/moment";
 const Job = () => {
   const dispatch = useDispatch();
 
@@ -145,6 +146,7 @@ const Job = () => {
                       title,
                       category,
                       location,
+                      createdAt
                     },
                     i
                   ) => {
@@ -231,7 +233,8 @@ const Job = () => {
 
                           <div className="w-full h-[1px] bg-gray" />
 
-                          <div className="flex items-center gap-3 justify-end">
+                          <div className="flex items-center gap-3 justify-between">
+                          <p className=" text-sm text-[#00c04b] bg-green-100 inline-block p-[2px] rounded ">{moment(createdAt).fromNow()} </p>
                             <Link
                               href={`/details/${_id}`}
                               className="border-2 px-2 py-1 text-sm border-green text-green hover:bg-green hover:text-white rounded-md"

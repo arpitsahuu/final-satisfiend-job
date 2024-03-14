@@ -59,12 +59,49 @@ useEffect(() => {
   <input 
     type="text"
     id=""
-    placeholder="Search by Student Firsrname / Lastname / email "
+    placeholder="Search by Student Firsrname / Lastname  / Email"
     class="border rounded-[15px] p-2 w-[4vw] focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
     onChange={(e) => setSearchTerm(e.target.value)}
   />
     </div>
-    {
+
+    <div className="overflow-x-auto mt-8">
+        <table className="min-w-full border rounded-lg overflow-hidden">
+          <thead className="bg-sky-800 text-white">
+            <tr>
+              <th className="py-2 px-4 font-semibold text-start">Name</th>
+              <th className="py-2 px-4 font-semibold text-start">Email</th>
+              <th className="py-2 px-4 font-semibold text-start">Job Applyed</th>
+              <th className="py-2 px-4 font-semibold text-start">Resume</th>
+              <th className="py-2 px-4 font-semibold text-start">Delete</th>
+            </tr>
+          </thead>
+          <tbody className="bg-orange-100">
+            {users?.map((student, index) => (
+              <tr
+                key={index}
+                className="bg-white border border-slate-300"
+              >
+                <td className="py-2 px-4 ">{`${student?.firstname} ${student?.lastname}`}</td>
+                <td className="py-2 px-4 ">{student?.email}</td>
+                <td className="py-2 px-4 ">{student?.applications?.length}</td>
+                <td className="py-2 px-4 ">
+                {
+                    student?.resumePdf?.fileId ? <a href={student?.resumePdf?.url}  target="_blank">Doanload</a> : <Link href={`/watchResume/${student?._id}`}>Watch</Link>
+                  }
+                </td>
+                <td className="py-2 px-4 text-center">
+                <button onClick={() =>DeletUser(student?._id)} className=" bg-sky-800 text-white px-2 py-1 rounded-md text-center">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          
+        {/* <Bar data={data} /> */}
+        
+      </div>
+    {/* {
         users &&
         <div className=" py-10 px-5 sm:px-16 viewAllJobs-content flex  items-center justify-center flex-wrap">
         {users?.map((user) =>(
@@ -80,7 +117,7 @@ useEffect(() => {
         </div>
         ))}
         </div>
-    }
+    } */}
     </>
   );
 };

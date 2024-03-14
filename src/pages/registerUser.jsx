@@ -6,6 +6,10 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { registerStudent } from "@/redux/actions/studentAction";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { IoLogoInstagram } from "react-icons/io5";
+import { FaLinkedin } from "react-icons/fa";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -47,7 +51,7 @@ const RegisterUser = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED]  px-10">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED]  px-10 relative">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
@@ -79,6 +83,12 @@ const RegisterUser = () => {
               <p>Takes only 4 steps</p>
             </div>
           </div>
+          <div className="flex gap-8 text-2xl text-white absolute bottom-8 ">
+            <FaFacebookSquare />
+            <FaSquareXTwitter />
+            <IoLogoInstagram />
+            <FaLinkedin />
+        </div>
         </div>
       </div>
       <div className="w-[100%] px-[20px] md:w-[60%] h-[100vh] flex	md:bg-white md:text-black  flex-col justify-center items-center">

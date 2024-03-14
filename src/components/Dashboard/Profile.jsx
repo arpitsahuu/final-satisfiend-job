@@ -66,7 +66,7 @@ const Profile = () => {
     <div className="flex items-center justify-center flex-col  ">
       <img
         onClick={handleClick}
-        src={employee.organisationlogo.url}
+        src={employee?.organisationlogo?.url}
         className="w-[80px] h-[80px] mt-10 rounded-full"
         alt=""
       />

@@ -374,7 +374,7 @@ export default function Home() {
 
         <div className="">
           <Container bgColor={"#F4F2F6"}>
-            <p className="sm:text-3xl text-xl font-[900] text-center  py-[10px] md:py-[10px] mb-16">
+            <p className="sm:text-3xl text-xl font-[900] text-center  py-[10px] md:py-[10px] mb-16 mt-8 sm:mt-1">
               Recent Job Openings
             </p>
           </Container>

@@ -147,6 +147,9 @@ const ViewAllJobs = ({ setTab, setId }) => {
             );
           }
         )}
+        { jobs?.length == 0 && <h1 className=" font-semibold text-center mt-10 text-slate-600 text-xl ">
+              You have not post any Job yet !
+            </h1>}
       </div>
     </div>
   );

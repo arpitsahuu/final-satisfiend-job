@@ -33,6 +33,12 @@ const MakeEmployeAdmin = async (id) =>{
   );
   setemploye(response.data.employe);
 } 
+
+const Deletemploer = async (id) =>{
+  const response = await axios.post(`${basePath}/admin/delete/user/${id}`, null, config()
+  );
+  setUsers(response.data.user);
+}
   
 
 //   useEffect( async () => {
@@ -53,16 +59,47 @@ useEffect(() => {
   return (
     <>
     <div className="mx-10 mt-4">
-    <label for="" class="text-sm font-medium text-gray-800 text-nowrap">Search Studnt :</label>
+    <label for="" class="text-sm font-medium text-gray-800 text-nowrap">Search Employer :</label>
   <input 
     type="text"
     id=""
-    placeholder="Search by Student Firsrname / Lastname / email "
+    placeholder="Search by Employer Firsrname / Lastname / Organisation "
     class="border rounded-[15px] p-2 w-[4vw] focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
     onChange={(e) => setSearchTerm(e.target.value)}
   />
     </div>
-    {
+      
+    <div className="overflow-x-auto mt-8"> 
+    <table className="min-w-full border rounded-lg overflow-hidden mt-5">
+          <thead className="bg-sky-800 text-white">
+            <tr>
+              <th className="py-2 px-4 font-semibold text-start ">Organisation Name</th>
+              <th className="py-2 px-4 font-semibold text-start ">Employer Name</th>
+              <th className="py-2 px-4 font-semibold text-start ">Employer Email</th>
+              <th className="py-2 px-4 font-semibold text-start  block sm:hidden ">Job Posts</th>
+              <th className="py-2 px-4 font-semibold text-start  block sm:hidden ">Delete</th>
+            </tr>
+          </thead>
+          <tbody className="bg-orange-100">
+            {employes?.map((employe, index) => (
+              <tr
+                key={index}
+                className="bg-white border border-slate-300"
+              >
+                <td className="py-2 px-4  overflow-hidden">{employe?.organisationname}</td>
+                <td className="py-2 px-4 ">{`${employe?.firstname} ${employe?.lastname}`}</td>
+                <td className="py-2 px-4 ">{employe?.email}</td>
+                <td className="py-2 px-4  block sm:hidden">{employe?.jobs?.length}</td>
+                <td className="py-2 px-4  block sm:hidden">
+                <button  className=" bg-sky-800 text-white px-2 py-1 rounded-md  ">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+    </div>   
+        
+    {/* {
         employes &&
         <div className="py-5  sm:py-10 px-5 sm:px-16  viewAllJobs-content flex  items-center justify-center flex-wrap">
         {employes?.map((employ) =>(
@@ -79,7 +116,7 @@ useEffect(() => {
         </div>
         ))}
         </div>
-    }
+    } */}
     </>
   );
 };

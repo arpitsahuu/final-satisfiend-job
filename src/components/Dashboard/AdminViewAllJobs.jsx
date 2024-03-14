@@ -55,7 +55,7 @@ useEffect(() => {
   <input 
     type="text"
     id=""
-    placeholder="Search by Student Firsrname / Lastname / email "
+    placeholder="Search Jobs by Title / Location "
     class="border rounded-[15px] p-2 w-[4vw] focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
     onChange={(e) => setSearchTerm(e.target.value)}
   />
