@@ -10,8 +10,6 @@ import Filter from "./FilterApplications";
 import Link from "next/link";
 import { allJobs } from "@/redux/actions/jobAction";
 import axios from "axios";
-// import { Bar } from 'react-chartjs-2';
-// import {Bar} from "chart.js"
 import {
   BarChart,
   Bar,
@@ -24,48 +22,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const datas = [
-  {
-    name: "7-march",
-    users: 500,
-  },
-  {
-    name: "8-march",
-    users: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "9-march",
-    users: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "10-march",
-    users: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "11-march",
-    users: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "12-march",
-    users: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "13-march",
-    users: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 const renderCustomBarLabel = ({ x, y, width, height, value }) => {
   return (
     <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>
@@ -94,7 +50,7 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(allJobs());
-    if (employee.isAdmin) {
+    if (employee?.isAdmin) {
       GraphAdmin();
       AddAdminInformation();
     }
@@ -136,7 +92,6 @@ const Main = () => {
       config()
     );
     let json = response.data;
-    console.log(json);
     setData(json);
     // console.log(data, "data");
   };
@@ -147,9 +102,8 @@ const Main = () => {
       config()
     );
     let json = response.data;
-    console.log(json);
     setAdminInfo(json);
-    console.log(data, "data");
+
   };
 
   // if(employee?.isAdmin){
@@ -213,14 +167,14 @@ const Main = () => {
           <div className="bg-sky-500 text-white p-6 rounded-md flex items-center justify-between">
             <AiOutlineUserAdd className="text-4xl" />
             <span className="text-2xl ml-4">
-              {allApplication && allApplication.length} Users Applied
+              {allApplication && allApplication?.length} Users Applied
             </span>
           </div>
 
           <div className="bg-orange-500 text-white p-6 rounded-md flex items-center justify-between">
             <FaChartPie className="text-4xl" />
             <span className="text-2xl ml-4">
-              {jobs && jobs.length} Jobs Posted
+              {jobs && jobs?.length} Jobs Posted
             </span>
           </div>
 
@@ -231,7 +185,7 @@ const Main = () => {
         </div>
       )}
       {
-        employee.isAdmin &&
+        employee?.isAdmin &&
         <div className=" chartbar w-full flex flex-col   items-center gap-10 ">
           <div className=" h-[200px] w-[320px] sm:h-[400px] sm:w-[600px]">
         <ResponsiveContainer className="mt-16" width="100%" height="100%">
@@ -294,18 +248,18 @@ const Main = () => {
                   key={index}
                   className={index % 2 === 0 ? "bg-orange-100" : "bg-white"}
                 >
-                  <td className="py-2 px-4 text-center">{`${e.studentId?.firstname} ${e.studentId?.lastname}`}</td>
+                  <td className="py-2 px-4 text-center">{`${e?.studentId?.firstname} ${e?.studentId?.lastname}`}</td>
                   <td className="py-2 px-4 text-center">
-                    {e.studentId?.email}
+                    {e?.studentId?.email}
                   </td>
                   <td className="py-2 px-4 text-center">{e.jobId?.title}</td>
                   <td className="py-2 px-4 text-center">
-                    {e.studentId.resumePdf.fileId ? (
-                      <a href={e.studentId.resumePdf.url} target="_blank">
+                    {e?.studentId.resumePdf.fileId ? (
+                      <a href={e?.studentId.resumePdf.url} target="_blank">
                         Doanload
                       </a>
                     ) : (
-                      <Link href={`/watchResume/${e.studentId._id}`}>
+                      <Link href={`/watchResumeEmploye/${e?.studentId._id}`}>
                         Watch
                       </Link>
                     )}
@@ -313,8 +267,8 @@ const Main = () => {
                   <td className="py-2 px-4 text-center">
                     <select
                       className="bg-white border rounded-md py-1 px-2"
-                      value={statusMap[e._id] || "pending"}
-                      onChange={(event) => handleSelectChange(e._id, event)}
+                      value={statusMap[e?._id] || "pending"}
+                      onChange={(event) => handleSelectChange(e?._id, event)}
                     >
                       <option value="Pending">Pending</option>
                       <option value="Accepted">Accept</option>

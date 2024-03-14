@@ -87,7 +87,7 @@ useEffect(() => {
                 <td className="py-2 px-4 ">{student?.applications?.length}</td>
                 <td className="py-2 px-4 ">
                 {
-                    student?.resumePdf?.fileId ? <a href={student?.resumePdf?.url}  target="_blank">Doanload</a> : <Link href={`/watchResume/${student?._id}`}>Watch</Link>
+                    student?.resumePdf?.fileId ? <a href={student?.resumePdf?.url}  target="_blank">Doanload</a> : <Link href={`/watchResumeEmploye/${student?._id}`}>Watch</Link>
                   }
                 </td>
                 <td className="py-2 px-4 text-center">

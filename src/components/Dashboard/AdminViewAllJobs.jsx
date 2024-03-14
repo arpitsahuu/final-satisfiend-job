@@ -67,10 +67,10 @@ useEffect(() => {
           <div className="w-[300px] h-[200px] bg-white border border-slate-300 rounded-lg px-2 py-3">
             <div className="flex justify-between mb-1 items-center">
                 <div className="ps-2">
-                  <h1 className="text-md font-semibold">{job.title}</h1>
-                  <p className="text-xs text-gray-500">{job.employer?.organisationname}</p>
+                  <h1 className="text-md font-semibold">{job?.title}</h1>
+                  <p className="text-xs text-gray-500">{job?.employer?.organisationname}</p>
                 </div>
-                <img src={job.employer?.organisationlogo.url} className="h-8 pe-2" alt="" />
+                <img src={job?.employer?.organisationlogo.url} className="h-8 pe-2" alt="" />
               </div>
               <div className="flex items-center gap-1 mt-2 ps-2  text-sm text-slate-600">
                 <FaLocationDot  className="text-xs" />
@@ -78,11 +78,11 @@ useEffect(() => {
               </div>
               <div className="flex items-center gap-1 mt-1 ps-2  text-sm text-slate-600">
                 <IoCashOutline  className="text-xs" />
-                <p>{job.salary} year</p>
+                <p>{job?.salary} year</p>
               </div>
               <div className="flex items-center gap-1 mt-1 ps-2  text-sm text-slate-600">
                 <FaShoppingBag  className="text-xs" />
-                <p>{job.openings} openings</p>
+                <p>{job?.openings} openings</p>
               </div>
               
           </div>
