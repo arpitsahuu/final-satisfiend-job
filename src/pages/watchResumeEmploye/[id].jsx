@@ -8,7 +8,7 @@ const WatchResume = () => {
     const { allApplication } = useSelector(
         (state) => state.employee
     );
-    let applicaion ;
+    let applicaion = null;
     if(allApplication){
      applicaion = allApplication?.find((applicaion) => applicaion?.studentId._id == id)
     }
