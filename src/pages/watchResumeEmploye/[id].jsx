@@ -9,8 +9,8 @@ const WatchResume = () => {
         (state) => state.employee
     );
     
-    const {studentId} = allApplication.find((applicaion) => applicaion.studentId._id == id)
-    console.log(studentId)
+    const {studentId} = allApplication?.find((applicaion) => applicaion?.studentId._id == id)
+  
   return (
     <div className="bg-gray-100 p-5 lg:p-10  ">
       <div
