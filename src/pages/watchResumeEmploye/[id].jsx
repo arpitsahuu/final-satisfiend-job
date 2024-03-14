@@ -8,7 +8,9 @@ const WatchResume = () => {
     const { allApplication } = useSelector(
         (state) => state.employee
     );
-    const [applicaion,setapplition] = useState({})
+    const [applicaion,setapplition] = useState({
+
+    })
     
     if(allApplication){
     const currnetResume = allApplication?.find((applicaion) => applicaion?.studentId._id == id)
@@ -26,7 +28,7 @@ const WatchResume = () => {
         <div className="mb-3 flex justify-between px-8 py-8 bg-slate-300">
           <div className="flex justify-center">
             <h1 className=" uppercase text-2xl sm:text-4xl ">
-              {allApplication & applicaion?.studentId?.firstname} applicaion?.{allApplication & studentId?.lastname}
+              {allApplication & applicaion?.studentId?.firstname} {allApplication & applicaion?.studentId?.lastname}
             </h1>
           </div>
           <div className=' font-medium text-[10px] sm:text-sm mt-1 " '>
@@ -42,7 +44,7 @@ const WatchResume = () => {
           <h2 className="text-base  mb-3 sm:text-xl sm:mb-2">Education</h2>
           {allApplication & applicaion?.studentId?.resume?.education != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.education?.map((education) => (
+              {applicaion?.studentId?.resume?.education?.map((education) => (
                 <div>
                   <div className="flex  justify-between gap-10 mb-">
                     <div>
@@ -82,7 +84,7 @@ const WatchResume = () => {
           <h2 className="text-base mb-3 sm:text-xl sm:mb-2">Experience</h2>
           {allApplication & applicaion?.studentId?.resume?.jobs.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.jobs?.map((job) => (
+              {applicaion?.studentId?.resume?.jobs?.map((job) => (
                 <div>
                   <div className="flex  justify-between gap-10 mb-">
                     <div>
@@ -117,7 +119,7 @@ const WatchResume = () => {
 
           {allApplication & applicaion?.studentId?.resume?.internships?.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.internships?.map((intership) => (
+              {applicaion?.studentId?.resume?.internships?.map((intership) => (
                 <div>
                   <div className="flex  justify-between gap-10 mb-">
                     <div>
@@ -150,7 +152,7 @@ const WatchResume = () => {
           )}
           {allApplication & applicaion?.studentId?.resume?.projects.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.projects?.map((project) => (
+              {applicaion?.studentId?.resume?.projects?.map((project) => (
                 <div>
                   <div className="flex  justify-between gap-10 mb-">
                     <div>
@@ -180,7 +182,7 @@ const WatchResume = () => {
           )}
           {allApplication & applicaion?.studentId?.resume?.skills.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.skills?.map((skill) => (
+              {applicaion?.studentId?.resume?.skills?.map((skill) => (
                 <div className="px-3">
                   <ul className=" flex gap-10 flex-wrap list-disc ">
                     <li className=" text-xs">{skill.skill} <spans className=" text-slate-500">({skill.level})</spans></li>
@@ -197,7 +199,7 @@ const WatchResume = () => {
 
           {allApplication & applicaion?.studentId?.resume?.courses.length != 0 && (
             <div className=" border-t-2 border-slate-400 py-2">
-              {studentId?.resume?.courses?.map((course) => (
+              {applicaion?.studentId?.resume?.courses?.map((course) => (
                 <div>
                   <div className="flex  justify-between gap-10 mb-">
                     <div>
@@ -233,7 +235,7 @@ const WatchResume = () => {
           )}
           {allApplication & applicaion?.studentId?.resume?.responsibilities.length != 0 && (
             <div className=" border-t-2 border-slate-300 py-2 mb-5">
-              {studentId?.resume?.responsibilities?.map((res) => (
+              {applicaion?.studentId?.resume?.responsibilities?.map((res) => (
                 <div>
                   <div>
                     <p className="text-xs text-slate-600">
