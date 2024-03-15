@@ -942,6 +942,7 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   border-radius: 30px;
   -webkit-box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
 -moz-box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
+box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
 }
 
 
@@ -1111,8 +1112,6 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
     width: 300px;
     height: 50px;
     padding-left: 12px;
-    -webkit-box-shadow: 2px 18px 106px -27px rgba(107,106,107,1);
-    -moz-box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   }
   #searchicanbor{
     display: none;

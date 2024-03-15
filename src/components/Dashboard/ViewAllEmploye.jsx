@@ -76,8 +76,8 @@ useEffect(() => {
               <th className="py-2 px-4 font-semibold text-start ">Organisation Name</th>
               <th className="py-2 px-4 font-semibold text-start ">Employer Name</th>
               <th className="py-2 px-4 font-semibold text-start ">Employer Email</th>
-              <th className="py-2 px-4 font-semibold text-start  block sm:hidden ">Job Posts</th>
-              <th className="py-2 px-4 font-semibold text-start  block sm:hidden ">Delete</th>
+              <th className="py-2 px-4 font-semibold text-start ">Job Posts</th>
+              <th className="py-2 px-4 font-semibold text-start  ">Delete</th>
             </tr>
           </thead>
           <tbody className="bg-orange-100">
@@ -89,8 +89,8 @@ useEffect(() => {
                 <td className="py-2 px-4  overflow-hidden">{employe?.organisationname}</td>
                 <td className="py-2 px-4 ">{`${employe?.firstname} ${employe?.lastname}`}</td>
                 <td className="py-2 px-4 ">{employe?.email}</td>
-                <td className="py-2 px-4  block sm:hidden">{employe?.jobs?.length}</td>
-                <td className="py-2 px-4  block sm:hidden">
+                <td className="py-2 px-4  ">{employe?.jobs?.length}</td>
+                <td className="py-2 px-4 ">
                 <button  className=" bg-sky-800 text-white px-2 py-1 rounded-md  ">Delete</button>
                 </td>
               </tr>
