@@ -971,6 +971,9 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
 .barbtn{
   padding: 20px 80px;
 }
+#homdiv{
+  display: none;
+}
 
 
 /* 
@@ -1175,5 +1178,12 @@ box-shadow: 2px 18px 46px -27px rgba(107,106,107,1);
   }
   .chartbar{
     flex-direction: column;
+  }
+  .smbtn{
+    display:  none;
+  }
+  #homdiv{
+    display: block;
+
   }
 }

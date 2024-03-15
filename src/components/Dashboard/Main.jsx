@@ -212,8 +212,7 @@ const Main = () => {
       <div className="flex flex-col  gap-5 pt-5 mt-14 sm:mt-1">
           <div className="bg-green text-white px-5 py-5 rounded-md flex items-center justify-between barbtn">
             <span className="text-xl ml-4">
-              {AdminInfo && AdminInfo?.TodayEmployerRegistration} Today Job
-              Posts
+              {AdminInfo && AdminInfo?.TodayEmployerRegistration} Today Employer Registrations
             </span>
           </div>
           <div className="bg-green text-white p-6 rounded-md flex items-center justify-between barbtn">

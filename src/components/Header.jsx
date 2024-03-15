@@ -163,7 +163,10 @@ const Header = () => {
       </>
 
       <div className="w-[100%] h-[40px]  md:hidden flex items-center gap-2 px-2 py-[30px]  justify-between fixed bg-gray ">
-           
+
+        {
+          employee  &&
+
         <div className="flex gap-3 items-center text-[20px]">
           <div className="nav-right text-[20px]">
             <IoMdMenu
@@ -175,8 +178,26 @@ const Header = () => {
 
           </div>
         </div>
+        }
+        
+        {
+          student  &&
+
+        <div className="flex gap-3 items-center text-[20px]">
+          <div className="nav-right text-[20px]">
+            <IoMdMenu
+              ref={menuBtn}
+              id="menu-btn"
+              onClick={handleClick}
+              className="md:hidden"
+            />
+
+          </div>
+        </div>
+        }
+           
       
-        <h1 className="text-green text-[20px] font-semibold flex items-center">
+        <h1 className="text-green text-[20px] font-semibold flex items-center ms-1 mt-3 sm:mt-0 sm:ms-0">
           SATISFIED <span className="text-black">JOB</span>
         </h1>
         <div className="flex items-center gap-3">
@@ -192,12 +213,12 @@ const Header = () => {
             </div>
           ) : (
             <>
-              <Link href={"/loginEmployee"} className="text-green">
+              <Link href={"/loginEmployee"} className="text-green mt-3 sm:mt-0">
                 Employer
               </Link>
               <Link
                 href={"/loginUser"}
-                className="bg-green px-2 py-1 rounded-md text-white"
+                className="bg-green px-2 py-1 rounded-md text-white mt-3 sm:mt-0"
               >
                 Candidate
               </Link>
